@@ -8,5 +8,8 @@ Thumbs.db
 desktop.ini
 .DS_Store
 
-# 証券会社からの生CSV（手動で確認してから追加する）
+# 証券会社からの生CSV（中身を確認してから個別に追加する）
 *.csv
+
+# ただし配当履歴のアーカイブは追跡する
+!data/dividends/**/*.csv
