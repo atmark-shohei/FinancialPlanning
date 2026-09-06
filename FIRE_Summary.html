@@ -99,11 +99,12 @@
   .ev p{font-size:13px;color:var(--muted)}
   .ev.key h3{color:var(--brass)}
 
-  .todo{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:11px}
-  .todo li{display:grid;grid-template-columns:20px 1fr;gap:11px;font-size:14px;align-items:start}
-  .todo li::before{content:"";width:13px;height:13px;margin-top:6px;border:1.5px solid var(--indigo-soft);border-radius:2px}
-  .todo b{font-weight:700}
-  .todo .note{display:block;font-size:12.5px;color:var(--muted)}
+  .todo{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:13px}
+  .todo li{display:grid;grid-template-columns:16px minmax(0,1fr);gap:12px;font-size:14px;align-items:start}
+  .todo li::before{content:"";width:14px;height:14px;margin-top:5px;border:1.5px solid var(--indigo-soft);border-radius:2px}
+  .todo li>div{min-width:0}
+  .todo b{font-weight:700;display:block;line-height:1.6}
+  .todo .note{display:block;font-size:12.5px;color:var(--muted);line-height:1.65;margin-top:1px}
 
   .note-box{background:var(--surface);border-left:3px solid var(--brass);padding:14px 16px;font-size:13.5px;color:var(--muted)}
   .note-box b{color:var(--ink)}
@@ -224,10 +225,10 @@
   <section>
     <div class="sechead"><h2>今月やること</h2></div>
     <ul class="todo">
-      <li><span></span><div><b>配偶者の積立を月10万 → 15万に増額</b><span class="note">増額分は日本株高配当2.5万＋グローバル高配当2.5万（成長投資枠）</span></div></li>
-      <li><span></span><div><b>本人の積立はそのまま継続</b><span class="note">オルカン10万＋SCHD5万が2026年のNISA枠を自動で使い切る。変更不要</span></div></li>
-      <li><span></span><div><b>自社の売買制限期間を確認</b><span class="note">ストックオプションの売却時期に効く。期限直前だと売れない恐れがある</span></div></li>
-      <li><span></span><div><b>配偶者の2026年NISA成長投資枠の残りを確認</b><span class="note">残っていれば年内に埋める。枠は翌年に繰り越せない</span></div></li>
+      <li><div><b>配偶者の積立を月10万 → 15万に増額</b><span class="note">増額分は日本株高配当2.5万＋グローバル高配当2.5万（成長投資枠）</span></div></li>
+      <li><div><b>本人の積立はそのまま継続</b><span class="note">オルカン10万＋SCHD5万が2026年のNISA枠を自動で使い切る。変更不要</span></div></li>
+      <li><div><b>自社の売買制限期間を確認</b><span class="note">ストックオプションの売却時期に効く。期限直前だと売れない恐れがある</span></div></li>
+      <li><div><b>配偶者の2026年NISA成長投資枠の残りを確認</b><span class="note">残っていれば年内に埋める。枠は翌年に繰り越せない</span></div></li>
     </ul>
   </section>
 
