@@ -1,0 +1,239 @@
+<title>36歳到達 FIRE計画</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --ground:#FBFAF7;
+    --surface:#F3F1EC;
+    --line:#DFDAD0;
+    --ink:#1A1E28;
+    --muted:#67707F;
+    --indigo:#253656;
+    --indigo-soft:#5C6E96;
+    --brass:#9A7734;
+    --brass-soft:#C7A867;
+    --good:#3F6B4A;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#13161D;
+      --surface:#1C2029;
+      --line:#2E3440;
+      --ink:#E9E6E0;
+      --muted:#98A0AF;
+      --indigo:#8FA4D0;
+      --indigo-soft:#6A7EA8;
+      --brass:#D0AC69;
+      --brass-soft:#8A7038;
+      --good:#7FB08C;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#13161D;
+    --surface:#1C2029;
+    --line:#2E3440;
+    --ink:#E9E6E0;
+    --muted:#98A0AF;
+    --indigo:#8FA4D0;
+    --indigo-soft:#6A7EA8;
+    --brass:#D0AC69;
+    --brass-soft:#8A7038;
+    --good:#7FB08C;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--ground);
+    color:var(--ink);
+    font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",system-ui,sans-serif;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:56px 24px 80px;display:flex;flex-direction:column;gap:52px}
+
+  h1,h2,h3{font-family:"Zen Old Mincho",serif;text-wrap:balance;margin:0}
+  h1{font-size:clamp(28px,5vw,40px);font-weight:700;letter-spacing:.02em;line-height:1.3}
+  h2{font-size:19px;font-weight:600;letter-spacing:.04em;color:var(--indigo)}
+  .eyebrow{font-size:11px;letter-spacing:.18em;color:var(--muted);font-weight:700}
+  p{margin:0}
+  .num{font-variant-numeric:tabular-nums}
+
+  header{display:flex;flex-direction:column;gap:14px;padding-bottom:36px;border-bottom:2px solid var(--indigo)}
+  .lede{font-size:16px;color:var(--muted);max-width:60ch}
+  .lede b{color:var(--ink);font-weight:700}
+
+  section{display:flex;flex-direction:column;gap:18px}
+  .sechead{display:flex;align-items:baseline;gap:12px}
+  .sechead::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+  .tile{background:var(--ground);padding:18px 16px;display:flex;flex-direction:column;gap:3px}
+  .tile dt{font-size:11px;letter-spacing:.1em;color:var(--muted);font-weight:700}
+  .tile dd{margin:0;font-family:"Zen Old Mincho",serif;font-size:27px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.2}
+  .tile .sub{font-size:12px;color:var(--muted)}
+  .tile.hit dd{color:var(--brass)}
+
+  figure{margin:0;overflow-x:auto}
+  svg{display:block;min-width:520px;width:100%;height:auto}
+
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{padding:9px 10px;text-align:right;border-bottom:1px solid var(--line)}
+  th:first-child,td:first-child{text-align:left}
+  thead th{font-size:11px;letter-spacing:.08em;color:var(--muted);font-weight:700;border-bottom:1.5px solid var(--indigo-soft)}
+  tbody td{font-variant-numeric:tabular-nums}
+  tbody tr:last-child td{border-bottom:none}
+  .tot td{font-weight:700;border-top:1.5px solid var(--indigo-soft);background:var(--surface)}
+  .who{display:inline-block;font-size:11px;padding:1px 7px;border-radius:2px;font-weight:700;letter-spacing:.04em}
+  .me{background:var(--indigo);color:var(--ground)}
+  .sp{background:var(--brass-soft);color:var(--ground)}
+  :root[data-theme="dark"] .me,:root[data-theme="dark"] .sp{color:#13161D}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .me,:root:not([data-theme="light"]) .sp{color:#13161D}}
+  .tag{font-size:11px;color:var(--muted)}
+
+  .tl{display:flex;flex-direction:column;gap:0}
+  .ev{display:grid;grid-template-columns:88px 1fr;gap:18px;padding:15px 0;border-bottom:1px solid var(--line)}
+  .ev:last-child{border-bottom:none}
+  .ev time{font-family:"Zen Old Mincho",serif;font-size:15px;font-weight:600;color:var(--indigo);font-variant-numeric:tabular-nums}
+  .ev h3{font-size:15px;font-weight:700;margin-bottom:2px}
+  .ev p{font-size:13px;color:var(--muted)}
+  .ev.key h3{color:var(--brass)}
+
+  .todo{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:11px}
+  .todo li{display:grid;grid-template-columns:20px 1fr;gap:11px;font-size:14px;align-items:start}
+  .todo li::before{content:"";width:13px;height:13px;margin-top:6px;border:1.5px solid var(--indigo-soft);border-radius:2px}
+  .todo b{font-weight:700}
+  .todo .note{display:block;font-size:12.5px;color:var(--muted)}
+
+  .note-box{background:var(--surface);border-left:3px solid var(--brass);padding:14px 16px;font-size:13.5px;color:var(--muted)}
+  .note-box b{color:var(--ink)}
+  footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:20px}
+  a{color:var(--indigo)}
+</style>
+
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">世帯FIRE計画 ／ 32歳 → 40歳</p>
+    <h1>目標は36歳で到達する</h1>
+    <p class="lede">世帯の年間入金 <b>530万円</b>（本人350万＋配偶者180万）で、必要額 <b>6,700万円</b> に <b>36歳</b> で到達。40歳まで積めば <b>1億1,336万円</b>、総合引出率は <b>2.52%</b> にとどまる。<b>配当だけで生活費の目標を満たす。</b></p>
+  </header>
+
+  <section>
+    <div class="sechead"><h2>到達点</h2></div>
+    <dl class="tiles">
+      <div class="tile hit"><dt>目標到達</dt><dd class="num">36<span style="font-size:16px">歳</span></dd><span class="sub">必要額 6,700万</span></div>
+      <div class="tile"><dt>40歳の総資産</dt><dd class="num">1.13<span style="font-size:16px">億</span></dd><span class="sub">保守ケース 1.06億</span></div>
+      <div class="tile hit"><dt>40歳の配当（手取り）</dt><dd class="num">129.8<span style="font-size:16px">万</span></dd><span class="sub">目標120万を +9.8万</span></div>
+      <div class="tile"><dt>総合引出率</dt><dd class="num">2.52<span style="font-size:16px">%</span></dd><span class="sub">4%ルールに対し保守的</span></div>
+    </dl>
+    <div class="note-box"><b>配当だけで生活費が賄えるため、取り崩しが不要になる。</b>暴落中に元本を売らずに済むので、FIRE直後の下落に計画が壊されにくい。</div>
+  </section>
+
+  <section>
+    <div class="sechead"><h2>資産の推移</h2></div>
+    <figure>
+      <svg viewBox="0 0 720 262" role="img" aria-label="33歳4,907万から40歳1億1,336万までの資産推移。36歳で目標6,700万を突破する。">
+        <g stroke="var(--line)" stroke-width="1">
+          <line x1="60" y1="162.5" x2="700" y2="162.5"/>
+          <line x1="60" y1="115" x2="700" y2="115"/>
+          <line x1="60" y1="67.5" x2="700" y2="67.5"/>
+          <line x1="60" y1="20" x2="700" y2="20"/>
+        </g>
+        <g fill="var(--muted)" font-size="11" text-anchor="end" font-family="'Zen Kaku Gothic New',sans-serif">
+          <text x="52" y="166">3,000万</text>
+          <text x="52" y="118.5">6,000万</text>
+          <text x="52" y="71">9,000万</text>
+          <text x="52" y="23.5">1.2億</text>
+        </g>
+        <path d="M60 132.3 L151.4 119.9 L242.9 106.9 L334.3 93.1 L425.7 78.7 L517.1 63.4 L608.6 47.4 L700 30.5 L700 210 L60 210 Z" fill="var(--indigo)" opacity="0.13"/>
+        <line x1="60" y1="103.9" x2="700" y2="103.9" stroke="var(--brass)" stroke-width="1.5" stroke-dasharray="5 4"/>
+        <text x="66" y="99" fill="var(--brass)" font-size="11" font-weight="700" font-family="'Zen Kaku Gothic New',sans-serif">必要額 6,700万</text>
+        <polyline points="60,132.3 151.4,119.9 242.9,106.9 334.3,93.1 425.7,78.7 517.1,63.4 608.6,47.4 700,30.5" fill="none" stroke="var(--indigo)" stroke-width="2.5" stroke-linejoin="round"/>
+        <g fill="var(--ground)" stroke="var(--indigo)" stroke-width="2">
+          <circle cx="60" cy="132.3" r="3.5"/><circle cx="151.4" cy="119.9" r="3.5"/>
+          <circle cx="242.9" cy="106.9" r="3.5"/><circle cx="425.7" cy="78.7" r="3.5"/>
+          <circle cx="517.1" cy="63.4" r="3.5"/><circle cx="608.6" cy="47.4" r="3.5"/>
+        </g>
+        <circle cx="334.3" cy="93.1" r="6" fill="var(--brass)"/>
+        <circle cx="700" cy="30.5" r="5" fill="var(--indigo)"/>
+        <text x="334.3" y="82" fill="var(--brass)" font-size="12" font-weight="700" text-anchor="middle" font-family="'Zen Kaku Gothic New',sans-serif">7,382万</text>
+        <text x="700" y="21" fill="var(--indigo)" font-size="12" font-weight="700" text-anchor="end" font-family="'Zen Kaku Gothic New',sans-serif">1億1,336万</text>
+        <g fill="var(--muted)" font-size="11" text-anchor="middle" font-family="'Zen Kaku Gothic New',sans-serif">
+          <text x="60" y="232">33</text><text x="151.4" y="232">34</text><text x="242.9" y="232">35</text>
+          <text x="334.3" y="232" fill="var(--brass)" font-weight="700">36歳</text>
+          <text x="425.7" y="232">37</text><text x="517.1" y="232">38</text><text x="608.6" y="232">39</text><text x="700" y="232">40</text>
+        </g>
+        <text x="380" y="254" fill="var(--muted)" font-size="10.5" text-anchor="middle" font-family="'Zen Kaku Gothic New',sans-serif">世界株5%／日本株3%＋配当4%／BTC10%を想定</text>
+      </svg>
+    </figure>
+  </section>
+
+  <section>
+    <div class="sechead"><h2>毎月やること</h2></div>
+    <table>
+      <thead>
+        <tr><th>投下先</th><th>口座</th><th>月額</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="who me">本人</span> 全世界株（オルカン）</td><td class="tag">NISA つみたて枠</td><td>100,000</td></tr>
+        <tr><td><span class="who me">本人</span> 日本株高配当</td><td class="tag">NISA 成長枠</td><td>85,000</td></tr>
+        <tr><td><span class="who me">本人</span> グローバル高配当</td><td class="tag">NISA 成長枠</td><td>65,000</td></tr>
+        <tr><td><span class="who me">本人</span> 全世界株（オルカン）</td><td class="tag">特定口座</td><td>15,000</td></tr>
+        <tr><td><span class="who me">本人</span> ビットコイン</td><td class="tag">特定口座</td><td>10,000</td></tr>
+        <tr><td><span class="who me">本人</span> 現金</td><td class="tag">普通預金</td><td>16,667</td></tr>
+        <tr><td><span class="who sp">配偶者</span> 全世界株（オルカン）</td><td class="tag">NISA つみたて枠</td><td>100,000</td></tr>
+        <tr><td><span class="who sp">配偶者</span> 日本株高配当</td><td class="tag">NISA 成長枠</td><td>25,000</td></tr>
+        <tr><td><span class="who sp">配偶者</span> グローバル高配当</td><td class="tag">NISA 成長枠</td><td>25,000</td></tr>
+        <tr class="tot"><td>合計</td><td class="tag">うちNISA 40万</td><td>441,667</td></tr>
+      </tbody>
+    </table>
+    <div class="note-box">受取配当は<b>1円も使わず全額を再投資する</b>（四半期ごと）。共働きで、それぞれ自分の収入を自分名義で運用するため<b>贈与税は生じない</b>。</div>
+  </section>
+
+  <section>
+    <div class="sechead"><h2>節目</h2></div>
+    <div class="tl">
+      <div class="ev">
+        <time>2026年内</time>
+        <div><h3>フェーズ0 — 現金を積む</h3><p>既存の積立は変更不要。余剰の月約16.7万を現金へ。年末に本人の現金が156万に。</p></div>
+      </div>
+      <div class="ev key">
+        <time>2027年</time>
+        <div><h3>ストックオプションを行使・売却</h3><p>2,400株・行使価格250円。手取り約180万。<b>期限は2029年6月5日、在職要件あり。</b>税制適格のため待つ利点はない。</p></div>
+      </div>
+      <div class="ev">
+        <time>2030年</time>
+        <div><h3>本人のNISA生涯枠が満額</h3><p>以降は配偶者の枠へ。世帯枠3,600万は40歳時点でほぼ使い切る。</p></div>
+      </div>
+      <div class="ev key">
+        <time>2030年</time>
+        <div><h3>36歳 — 必要額6,700万に到達</h3><p>7,382万。ただし引出率3.79%で余裕がないため、まだ移行しない。</p></div>
+      </div>
+      <div class="ev">
+        <time>2031年</time>
+        <div><h3>37歳 — 引出率が安全圏に</h3><p>8,295万・3.39%。ここから前倒しFIREが選択肢に入る。</p></div>
+      </div>
+      <div class="ev key">
+        <time>2034年</time>
+        <div><h3>40歳 — 計画上のFIRE</h3><p>1億1,336万・引出率2.52%。生活費を月28.3万まで上げる余地もある。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sechead"><h2>今月やること</h2></div>
+    <ul class="todo">
+      <li><span></span><div><b>配偶者の積立を月10万 → 15万に増額</b><span class="note">増額分は日本株高配当2.5万＋グローバル高配当2.5万（成長投資枠）</span></div></li>
+      <li><span></span><div><b>本人の積立はそのまま継続</b><span class="note">オルカン10万＋SCHD5万が2026年のNISA枠を自動で使い切る。変更不要</span></div></li>
+      <li><span></span><div><b>自社の売買制限期間を確認</b><span class="note">ストックオプションの売却時期に効く。期限直前だと売れない恐れがある</span></div></li>
+      <li><span></span><div><b>配偶者の2026年NISA成長投資枠の残りを確認</b><span class="note">残っていれば年内に埋める。枠は翌年に繰り越せない</span></div></li>
+    </ul>
+  </section>
+
+  <footer>
+    前提 — 世帯総資産 4,163万円（本人3,582万／配偶者582万）。配当は配当管理アプリの実績・税引後613,721円に較正。ビットコインは全損しても計画が成立する範囲に留めている。<br>
+    詳細は <b>FIRE_Strategy.md</b>（全17章）を参照。本ページは要約であり、証券担保ローンの項は含まない。
+  </footer>
+
+</div>
